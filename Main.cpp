@@ -9,9 +9,11 @@ int insertAfter(int first, int second, vector <int> &Vec)
 	for (int i = 0; i< Vec.size(); i++)
 	{
 		if (first == Vec.at(i))
+		{
 			count++;
+			Vec.insert(Vec.begin() + (i+1), second);
+		}
 	}
-	Vec.push_back(second);
 	return count;
 }
 main()
@@ -33,9 +35,13 @@ main()
 	cout << "Enter the integer you want to add to the vector : ";
 	cin >> x;
 	x = insertAfter(k, x, Vec);
-	cout << "The integer " << k << " occurred " << x << " time/s." << endl << endl;
+	cout << "The integer " << k << " occurred " << x << " time/s." << endl << "The new vector after inserting the value : " << endl;
 	N = Vec.size();
-	
+	for(int i=0; i<N; i++)
+	{
+		cout << Vec.at(i) << endl;
+	}
+	cout << endl;
 	for(int i=0; i<N; i++)
 	{
 		Node *k = new Node;
